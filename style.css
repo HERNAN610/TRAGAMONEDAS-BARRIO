@@ -1,0 +1,338 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #18010e;
+    /* Importante para scroll vertical solo */
+    overflow-x: hidden;
+    /* ❌ impide scroll lateral */
+    overflow-y: auto;
+    /* ✅ permite scroll vertical */
+}
+
+
+
+h1 {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    text-align: center;
+    padding: 20px;
+}
+
+/*tablero-------------------------------*/
+#estiloTabla {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+    max-width: 100%;
+}
+
+
+
+td {
+    border: 1px solid rgb(51, 4, 51);
+    max-width: 65px;
+    min-width: 65px;
+    height: 65px;
+    padding: 0px;
+
+    transition: background-color 0.2s;
+}
+
+#apuesta,
+#credito {
+    text-align: center;
+    font-size: 30px;
+
+    color: white;
+    box-shadow:
+        0 0 5px #ffffff,
+        0 0 10px #ece2a8;
+    font-weight: bold;
+    background-color: red;
+}
+
+#apuestaLetrero,
+#creditoLetrero {
+    text-align: center;
+    font-size: 20px;
+    color: white;
+
+}
+
+/*ruleta-----------------------------------*/
+table {
+    border: 1px solid rgb(45, 10, 78);
+    padding: 10px;
+
+    background-color: rgb(86, 51, 119);
+    text-align: center;
+
+
+}
+
+
+.ruleta {
+    justify-content: center;
+    font-size: 30px;
+    background-color: #19aa92;
+    /* Color fosforescente base */
+    box-shadow:
+        0 0 10px #ffffff,
+        0 0 60px #ece2a8;
+    font-weight: bold;
+}
+
+#casilla-2,
+#casilla-14,
+#casilla-7,
+#casilla-8 {
+    font-size: 20px;
+}
+
+
+#izquierda,
+#derecha {
+    background-color: rgb(92, 11, 11);
+}
+
+/*tablero de puntos------------------------*/
+#puntosFruta {
+    background-color: #1a0429;
+    color: white;
+}
+
+#apuestaFruta {
+
+    background-color: #ddb2da;
+    color: #fa7ee5;
+    font-size: 30px;
+    text-shadow:
+        0 0 5px #490668,
+        0 0 10px #900ba1,
+        0 0 80px rgb(228, 20, 200);
+    font-weight: bold;
+}
+
+
+
+/*panel de control----------------------------*/
+#botonesApuestaElemento td button,
+#botonesControl td button {
+    width: 100%;
+    height: 100%;
+
+}
+
+#botonesApuestaElemento td button {
+    font-size: 25px;
+}
+
+#cobrar,
+#coin,
+#none,
+#L,
+#R {
+    text-align: center;
+    padding: 1px;
+    width: 100%;
+    height: 100%;
+    background-color: #2b0529;
+    color: white;
+    border-color: rgb(181, 21, 202);
+}
+
+#boton_jugar {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background-color: #2b0529;
+    color: white;
+    border-color: rgb(181, 21, 202);
+}
+
+
+#botonApostar button,
+#botonesApuestaElemento button {
+    width: 100%;
+    height: 100%;
+    padding: 1px;
+    background-color: #2b0529;
+    color: white;
+    border-color: rgb(181, 21, 202);
+}
+
+
+
+#botonApostar button {
+    font-size: 40px;
+    width: 100%;
+    height: 100%;
+}
+
+#salida_apuesta {
+    border-radius: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 15px;
+
+    width: calc(100% - 22px);
+    height: calc(100% - 24px);
+    background-color: #16031f;
+    color: rgb(121, 121, 121);
+    border: solid 2px rgb(68, 5, 119);
+}
+
+#entrada_apuesta {
+    border-radius: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 15px;
+
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    background-color: #16031f;
+    color: white;
+    border-color: rgb(121, 21, 202);
+}
+
+/* Ocultar flechas del input number */
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+#disabled button {
+    background-color: #414b44;
+}
+
+
+/*botones desactivados*/
+#boton_jugar:disabled {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background-color: #230b33;
+    color: rgb(160, 160, 145);
+    border-color: rgb(77, 25, 146);
+}
+
+#cobrar:disabled,
+#L:disabled,
+#R:disabled {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background-color: #230b33;
+    color: rgb(160, 160, 145);
+    border-color: rgb(77, 25, 146);
+}
+
+/* ---------------------- */
+/* Media Query Móviles */
+/* ---------------------- */
+@media (max-width: 600px) {
+
+    html,
+    body {
+        min-width: fit-content;
+        min-height: fit-content;
+        overflow-x: hidden;
+        /* evita el scroll horizontal */
+        overflow-y: auto;
+        /* permite el scroll vertical */
+    }
+
+    h1 {
+        font-size: 6vw;
+    }
+
+    /*tablero-------------------------------*/
+
+    td {
+        max-width: 37px;
+        min-width: 37px;
+        height: 37px;
+        font-size: 10px;
+    }
+
+    #casilla-2,
+    #casilla-14,
+    #casilla-7,
+    #casilla-8 {
+        font-size: 10px;
+    }
+
+    #apuestaFruta,
+    #apuesta,
+    #credito {
+
+        font-size: 30px;
+    }
+
+    #apuestaFruta td,
+    #puntosFruta td {
+        font-size: 15px;
+    }
+
+    #botonesApuestaElemento td button,
+    #apuestaLetrero,
+    #creditoLetrero {
+        font-size: 20px;
+    }
+
+
+
+    #botonApostar button {
+        font-size: 20px;
+
+    }
+
+
+
+    #salida_apuesta,
+    #entrada_apuesta {
+
+        font-size: 10px;
+
+    }
+
+    #boton_jugar,
+    #cobrar,
+    #coin,
+    #none,
+    #L,
+    #R {
+        font-size: 9px;
+    }
+
+    #entrada_apuesta {
+        width: 100%;
+        height: 100%;
+    }
+
+    .ruleta {
+        font-size: 14px;
+    }
+
+    #casilla-20 {
+        font-size: 10px;
+    }
+
+    #botonesApuestaElemento td button {
+        font-size: 15px;
+    }
+
+}

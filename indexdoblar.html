@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="ganancia()">Ganancia</button>
+    <button onclick="doblar()">Doblar</button>
+
+    <p id="numeroSumado"></p>
+    <p id="ultimoNumero"></p>
+    <p id="numeroDoblado"></p>
+    <p>-------------------------</p>
+    <p id="total"></p>
+    <p id="total1">Total:</p>
+
+    <script>
+        let numeroSumado = 0;
+        let numeroDoblado = 0;
+        let total = 0;
+        let numero = 0;
+        let ultimoNumero = 0;
+
+        function ganancia() {
+            numero = Math.floor(Math.random() * 5 + 1);
+            ultimoNumero = numero;
+            numeroSumado += numero;
+
+            document.getElementById("numeroSumado").innerHTML = numeroSumado;
+            document.getElementById("ultimoNumero").innerHTML = ultimoNumero;
+
+
+            total = numeroSumado
+            document.getElementById("total1").innerHTML = "Total: " + numeroSumado;
+
+            console.log("Número generado: " + ultimoNumero + " | Suma puntos: " + numeroSumado + " | Doblado: " + numeroDoblado + " | Total: " + total);
+
+
+        }
+
+        function doblar() {
+            numeroDoblado = ultimoNumero * 2;
+            ultimoNumero = numeroDoblado;
+
+            document.getElementById("numeroDoblado").innerHTML = numeroDoblado;
+
+            total = (numeroSumado - numero) + numeroDoblado;
+            document.getElementById("total").innerHTML = total;
+            document.getElementById("total1").innerHTML = "Total: " + total;
+
+            console.log("Número generado: " + ultimoNumero + " | Suma puntos: " + numeroSumado + " | Doblado: " + numeroDoblado + " | Total: " + total);
+        }
+    </script>
+</body>
+
+</html>

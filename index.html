@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>traga moneda</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <h1>TRAGAMONEDA DE BARRIO</h1>
+    <!--tabla-------------------------------------------->
+    <div id="estiloTabla">
+        <table>
+            <tr>
+                <td></td>
+                <td colspan="3" id="apuestaLetrero">APUESTA</td>
+                <td></td>
+                <td colspan="3" id="creditoLetrero">CREDITO</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="3" id="apuesta">0</td>
+                <td></td>
+                <td colspan="3" id="credito">0</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <!--ruleta----------------------------------->
+            <tr>
+                <td></td>
+                <td id="casilla-5" class="ruleta">🍊</td>
+                <td id="casilla-6" class="ruleta">🔔</td>
+                <td id="casilla-7" class="ruleta">BAR 50</td>
+                <td id="casilla-8" class="ruleta">BAR 100</td>
+                <td id="casilla-9" class="ruleta">🍎</td>
+                <td id="casilla-10" class="ruleta">🍒</td>
+                <td id="casilla-11" class="ruleta">🍈</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td id="casilla-4" class="ruleta">🔔</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td id="casilla-12" class="ruleta">🍉</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td id="casilla-3" class="ruleta">🍎</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td id="casilla-13" class="ruleta">🍒</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td id="casilla-2" class="ruleta">ONE MORE</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td id="casilla-14" class="ruleta">ONE MORE</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td id="casilla-1" class="ruleta">🍒</td>
+                <td></td>
+                <td id="izquierda"></td>
+                <td></td>
+                <td id="derecha"></td>
+                <td></td>
+                <td id="casilla-15" class="ruleta">🍎</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td id="casilla-0" class="ruleta">⭐</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td id="casilla-16" class="ruleta">🍒</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td id="casilla-23" class="ruleta">🍈</td>
+                <td id="casilla-22" class="ruleta">🍒</td>
+                <td id="casilla-21" class="ruleta">🍎</td>
+                <td id="casilla-20" class="ruleta">🎰</td>
+                <td id="casilla-19" class="ruleta">🍒</td>
+                <td id="casilla-18" class="ruleta">🔔</td>
+                <td id="casilla-17" class="ruleta">🍊</td>
+                <td></td>
+            </tr>
+            <!--TABLERO DE DATOS-------------------------------------->
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr id="puntosFruta">
+                <td id="valorMANZANA">5</td>
+                <td id="valorSANDIA">20</td>
+                <td id="valorESTRELLA">30</td>
+                <td id="valor777">40</td>
+                <td id="valorBAR">100</td>
+                <td id="valorCAMPANA">20</td>
+                <td id="valorMELON">15</td>
+                <td id="valorNARANJA">10</td>
+                <td id="valorCEREZA">2</td>
+            </tr>
+            <tr id="apuestaFruta">
+                <td id="puntosMANZANA">0</td>
+                <td id="puntosSANDIA">0</td>
+                <td id="puntosESTRELLA">0</td>
+                <td id="puntos777">0</td>
+                <td id="puntosBAR">0</td>
+                <td id="puntosCAMPANA">0</td>
+                <td id="puntosMELON">0</td>
+                <td id="puntosNARANJA">0</td>
+                <td id="puntosCEREZA">0</td>
+                <!--ONE_MORE-->
+                <td style="display: none;" id="puntosONE_MORE">1</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <!--PANEL DE CONTROL--------------------------------------------->
+            <tr id="botonesControl">
+                <td><button id="cobrar" onclick="cobrar()" disabled>COBRAR</button></td>
+                <td></td>
+                <td><button id="coin" onclick="COIN()">COIN</button></td>
+                <td><button id="none" onclick="NONE()">NONE</button></td>
+                <td></td>
+                <td><button id="L" onclick="apostarLado(0)" disabled>L</button></td>
+                <td><button id="R" onclick="apostarLado(1)" disabled>R</button></td>
+                <td></td>
+                <td><button id="boton_jugar" onclick="jugar()" disabled>JUGAR</button></td>
+            </tr>
+
+            <tr id="botonesApuestaElemento">
+
+                <td><button id="MANZANA" onclick="botonPuntos(this)">🍎</button></td>
+                <td><button id="SANDIA" onclick="botonPuntos(this)">🍉</button></td>
+                <td><button id="ESTRELLA" onclick="botonPuntos(this)">⭐</button></td>
+                <td><button id="777" onclick="botonPuntos(this)">🎰</button></td>
+                <td><button id="BAR" onclick="botonPuntos(this)">bar</button></td>
+                <td><button id="CAMPANA" onclick="botonPuntos(this)">🔔</button></td>
+                <td><button id="MELON" onclick="botonPuntos(this)">🍈</button></td>
+                <td><button id="NARANJA" onclick="botonPuntos(this)">🍊</button></td>
+                <td><button id="CEREZA" onclick="botonPuntos(this)">🍒</button></td>
+
+
+            </tr>
+            <tr>
+                <td colspan="2" id="salida_apuesta">COBRO</td>
+                <td colspan="5" id="botonApostar"> <button onclick="apostar()">APOSTAR</button></td>
+
+                <td colspan="2" style="border: 0;"><input min="0" step="1"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '')" id="entrada_apuesta" type="number"
+                        placeholder="CARTERA"></td>
+            </tr>
+        </table>
+    </div>
+
+    <p>elementos: 🍒 🍋 🍉 🍎 7️⃣ 🔔 💀 🍊🍈⭐</p>
+    <script src="./scrip.js"></script>
+</body>
+
+</html>
